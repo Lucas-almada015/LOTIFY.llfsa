@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640361561932",
+    "project_id": "lotify-90e31",
+    "storage_bucket": "lotify-90e31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640361561932:android:fe1939920f19b0d01fd9e9",
+        "android_client_info": {
+          "package_name": "com.llfsa.lotifyllfsa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyOEeaMAAcCjKfTfWKsnPlz_kLzUh9WUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
