@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -11,9 +12,12 @@
         android:id="@+id/imageView4"
         android:layout_width="482dp"
         android:layout_height="27dp"
-        app:srcCompat="@drawable/captura_de_pantalla_2024_05_29_190234"
-        tools:layout_editor_absoluteX="-36dp"
-        tools:layout_editor_absoluteY="74dp" />
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/captura_de_pantalla_2024_05_29_190234" />
 
     <TextView
         android:id="@+id/textView3"
@@ -23,75 +27,89 @@
         android:text="Lotify"
         android:textColor="#8BC34A"
         android:textSize="60sp"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="70dp"
-        android:layout_height="68dp"
-        app:srcCompat="@drawable/s3"
-        tools:layout_editor_absoluteX="340dp"
-        tools:layout_editor_absoluteY="6dp" />
+        android:layout_width="57dp"
+        android:layout_height="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/s3" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        app:srcCompat="@drawable/s2"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_width="56dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/s2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
         android:text="Control de Lotes"
         android:textSize="40sp"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="101dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="162dp"
         android:layout_height="169dp"
-        app:srcCompat="@drawable/s6"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="168dp" />
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/s6" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="184dp"
         android:layout_height="167dp"
-        app:srcCompat="@drawable/s5"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="170dp" />
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/s5" />
 
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="341dp"
         android:layout_height="59dp"
-        android:text="Cerrar sesion"
+        android:layout_marginBottom="48dp"
+        android:text="Cerrar sesión"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="382dp"
         android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="152dp"
         android:text="TextView"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="356dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <TextView
         android:id="@+id/providerTextView"
         android:layout_width="381dp"
         android:layout_height="53dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="419dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
