@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress" />
 
     <Button
-        android:id="@+id/iniciarsecion_btn"
+        android:id="@+id/logInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -102,32 +102,32 @@
         app:layout_constraintTop_toBottomOf="@id/editTextTextPassword" />
 
     <Button
-        android:id="@+id/SingUpButton"
+        android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/azul"
         android:text="Registrarme"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iniciarsecion_btn" />
+        app:layout_constraintTop_toBottomOf="@id/logInButton" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="414dp"
-        android:layout_height="143dp"
+        android:layout_width="412dp"
+        android:layout_height="113dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SingUpButton"
+        app:layout_constraintTop_toBottomOf="@id/signUpButton"
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintWidth_percent="1.0"
         app:srcCompat="@drawable/pepepi" />
