@@ -26,7 +26,7 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         // Inicializar vistas
-        emailTextView = findViewById(R.id.emailTextView)
+        emailTextView = findViewById(R.id.emaillTextView)
         providerTextView = findViewById(R.id.provideTextView)
         volverButton = findViewById(R.id.button6)
 

@@ -19,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var providerTextView: TextView
     private lateinit var logoutButton: Button
     private lateinit var perfilButton: Button
+    private lateinit var cargarButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,12 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Inicializar vistas
+        emailTextView = findViewById(R.id.emaillTextView)
+        providerTextView = findViewById(R.id.providerrTextView)
         logoutButton = findViewById(R.id.logoutButton)
-        perfilButton = findViewById(R.id.button3)
+        perfilButton = findViewById(R.id.button4)
+        cargarButton = findViewById(R.id.button2)
+
 
         // Setup
         val bundle: Bundle? = intent.extras
@@ -52,12 +57,19 @@ class HomeActivity : AppCompatActivity() {
         }
 
         perfilButton.setOnClickListener {
-            val intent = Intent(this, PerfilActivity::class.java)
-            intent.putExtra("email", email)
-            intent.putExtra("provider", provider)
+            val intent = Intent(this, PerfilActivity::class.java).apply {
+                putExtra("email", email)
+                putExtra("provider", provider)
+            }
+            startActivity(intent)
+        }
+        cargarButton.setOnClickListener {
+            val intent = Intent(this, cargardatosActivity::class.java).apply {
+                putExtra("email", email)
+                putExtra("provider", provider)
+            }
             startActivity(intent)
         }
     }
 }
-
 
