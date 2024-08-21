@@ -112,13 +112,14 @@ class LoteInfoActivity : AppCompatActivity() {
         val apiKey = "da6c9b620e5c4ab28fd14800242108"
         val location = "$lat,$lon"
 
-        RetrofitClient.weatherApiService.getCurrentWeather(apiKey, location)
+        // Ajusta la llamada a la API según sea necesario
+        RetrofitClient.weatherApiService.getCurrentWeather(apiKey, location, lang = "es")
             .enqueue(object : Callback<WeatherResponse> {
                 override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                     if (response.isSuccessful) {
                         val weatherResponse = response.body()
                         weatherTempTextView.text = "Temperatura: ${weatherResponse?.current?.temp_c} °C"
-                        weatherConditionTextView.text = "Condición: ${weatherResponse?.current?.condition?.text}"
+                        weatherConditionTextView.text = "Condición: ${translateCondition(weatherResponse?.current?.condition?.text.orEmpty())}"
                     } else {
                         Toast.makeText(this@LoteInfoActivity, "Error al obtener el clima", Toast.LENGTH_SHORT).show()
                     }
@@ -128,6 +129,21 @@ class LoteInfoActivity : AppCompatActivity() {
                     Toast.makeText(this@LoteInfoActivity, "Error de conexión", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun translateCondition(condition: String): String {
+        return when (condition.lowercase()) {
+            "clear" -> "Despejado"
+            "partly cloudy" -> "Parcialmente nublado"
+            "cloudy" -> "Nublado"
+            "overcast" -> "Cubierto"
+            "rain" -> "Lluvia"
+            "drizzle" -> "Llovizna"
+            "thunderstorm" -> "Tormenta eléctrica"
+            "snow" -> "Nieve"
+            "fog" -> "Niebla"
+            else -> condition
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

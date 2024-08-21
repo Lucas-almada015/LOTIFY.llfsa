@@ -1,17 +1,19 @@
 package com.llfsa.lotifyllfsa
 
-import android.app.Activity
-import android.content.Intent
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.activity.result.ActivityResult
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import android.view.View
 
 class cargardatosActivity : AppCompatActivity() {
 
@@ -22,8 +24,13 @@ class cargardatosActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var cargarButton: Button
     private lateinit var cancelButton: Button
+    private lateinit var checkboxUseCurrentLocation: CheckBox
+    private lateinit var checkboxManualLocation: CheckBox
+    private lateinit var manualLatitudeInput: EditText
+    private lateinit var manualLongitudeInput: EditText
     private lateinit var db: FirebaseFirestore
     private var selectedImageUri: Uri? = null
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
@@ -44,13 +51,39 @@ class cargardatosActivity : AppCompatActivity() {
         imageView = findViewById(R.id.imageView)
         cargarButton = findViewById(R.id.cargarButton)
         cancelButton = findViewById(R.id.cancelButton)
+        checkboxUseCurrentLocation = findViewById(R.id.checkbox_use_current_location)
+        checkboxManualLocation = findViewById(R.id.checkbox_manual_location)
+        manualLatitudeInput = findViewById(R.id.manual_latitude_input)
+        manualLongitudeInput = findViewById(R.id.manual_longitude_input)
 
-        // Inicializar Firestore
+        // Inicializar Firestore y LocationServices
         db = FirebaseFirestore.getInstance()
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Configurar listener del botón para seleccionar imagen
+        // Configurar listener para seleccionar imagen
         imageView.setOnClickListener {
             seleccionarImagen()
+        }
+
+        // Configurar lógica para mostrar u ocultar campos de ubicación
+        checkboxUseCurrentLocation.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                checkboxManualLocation.isChecked = false
+                manualLatitudeInput.visibility = View.GONE
+                manualLongitudeInput.visibility = View.GONE
+                solicitarPermisosUbicacion()
+            }
+        }
+
+        checkboxManualLocation.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                checkboxUseCurrentLocation.isChecked = false
+                manualLatitudeInput.visibility = View.VISIBLE
+                manualLongitudeInput.visibility = View.VISIBLE
+            } else {
+                manualLatitudeInput.visibility = View.GONE
+                manualLongitudeInput.visibility = View.GONE
+            }
         }
 
         // Configurar el listener del botón de carga
@@ -61,7 +94,26 @@ class cargardatosActivity : AppCompatActivity() {
             val tamaño = sizeInput.text.toString().trim()
 
             if (nombre.isNotEmpty() && numeroLote.isNotEmpty() && ubicacion.isNotEmpty() && tamaño.isNotEmpty()) {
-                guardarDatos(nombre, numeroLote, ubicacion, tamaño)
+                if (checkboxUseCurrentLocation.isChecked) {
+                    obtenerUbicacionActual { location ->
+                        if (location != null) {
+                            guardarDatos(nombre, numeroLote, ubicacion, tamaño, location.latitude.toString(), location.longitude.toString())
+                        } else {
+                            Toast.makeText(this, "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else if (checkboxManualLocation.isChecked) {
+                    val latitud = manualLatitudeInput.text.toString().trim()
+                    val longitud = manualLongitudeInput.text.toString().trim()
+
+                    if (latitud.isNotEmpty() && longitud.isNotEmpty()) {
+                        guardarDatos(nombre, numeroLote, ubicacion, tamaño, latitud, longitud)
+                    } else {
+                        Toast.makeText(this, "Por favor completa la latitud y longitud", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, "Por favor selecciona una opción de ubicación", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
             }
@@ -69,7 +121,6 @@ class cargardatosActivity : AppCompatActivity() {
 
         // Configurar el listener del botón de cancelar
         cancelButton.setOnClickListener {
-            // Implementar la lógica de cancelación si es necesario
             finish()
         }
     }
@@ -78,31 +129,69 @@ class cargardatosActivity : AppCompatActivity() {
         pickImageLauncher.launch("image/*")
     }
 
-    private fun guardarDatos(nombre: String, numeroLote: String, ubicacion: String, tamaño: String) {
-        // Crear un mapa con los datos del lote
+    private fun solicitarPermisosUbicacion() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        } else {
+            obtenerUbicacionActual { location ->
+                if (location != null) {
+                    manualLatitudeInput.setText(location.latitude.toString())
+                    manualLongitudeInput.setText(location.longitude.toString())
+                } else {
+                    Toast.makeText(this, "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            obtenerUbicacionActual { location ->
+                if (location != null) {
+                    manualLatitudeInput.setText(location.latitude.toString())
+                    manualLongitudeInput.setText(location.longitude.toString())
+                } else {
+                    Toast.makeText(this, "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            Toast.makeText(this, "Permisos de ubicación denegados", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun obtenerUbicacionActual(callback: (Location?) -> Unit) {
+        try {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                callback(location)
+            }
+        } catch (e: SecurityException) {
+            Toast.makeText(this, "No se pudo obtener la ubicación actual: ${e.message}", Toast.LENGTH_SHORT).show()
+            callback(null)
+        }
+    }
+
+    private fun guardarDatos(nombre: String, numeroLote: String, ubicacion: String, tamaño: String, latitud: String, longitud: String) {
         val lote = hashMapOf(
             "nombre" to nombre,
             "numeroLote" to numeroLote,
             "ubicacion" to ubicacion,
-            "tamaño" to tamaño
+            "tamaño" to tamaño,
+            "latitud" to latitud,
+            "longitud" to longitud
         )
 
-        // Agregar la URL de la imagen si se seleccionó una
         selectedImageUri?.let { uri ->
             lote["imageUrl"] = uri.toString()
         }
 
-        // Agregar los datos del lote a Cloud Firestore
         db.collection("lotes")
             .add(lote)
-            .addOnSuccessListener { documentReference ->
-                // Datos guardados exitosamente
+            .addOnSuccessListener {
                 Toast.makeText(this, "Lote cargado exitosamente", Toast.LENGTH_SHORT).show()
-                // Limpiar campos después de éxito si es necesario
                 limpiarCampos()
             }
             .addOnFailureListener { e ->
-                // Manejo de errores
                 Toast.makeText(this, "Error al cargar el lote: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -112,7 +201,12 @@ class cargardatosActivity : AppCompatActivity() {
         lotNumberInput.text.clear()
         locationInput.text.clear()
         sizeInput.text.clear()
-        imageView.setImageResource(android.R.color.transparent) // Limpiar imagen seleccionada si es necesario
+        manualLatitudeInput.text.clear()
+        manualLongitudeInput.text.clear()
+        imageView.setImageResource(android.R.color.transparent)
         selectedImageUri = null
+        checkboxUseCurrentLocation.isChecked = false
+        checkboxManualLocation.isChecked = false
     }
 }
+
