@@ -8,14 +8,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 
 class cargardatosActivity : AppCompatActivity() {
+
     private lateinit var nameInput: EditText
     private lateinit var lotNumberInput: EditText
     private lateinit var locationInput: EditText
@@ -26,19 +25,16 @@ class cargardatosActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private var selectedImageUri: Uri? = null
 
-    companion object {
-        private const val PICK_IMAGE_REQUEST = 1
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            selectedImageUri = it
+            imageView.setImageURI(selectedImageUri)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_cargardatos)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         // Inicializar vistas
         nameInput = findViewById(R.id.nameInput)
@@ -79,19 +75,7 @@ class cargardatosActivity : AppCompatActivity() {
     }
 
     private fun seleccionarImagen() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Seleccione una imagen"), PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            selectedImageUri = data.data
-            imageView.setImageURI(selectedImageUri)
-        }
+        pickImageLauncher.launch("image/*")
     }
 
     private fun guardarDatos(nombre: String, numeroLote: String, ubicacion: String, tamaño: String) {
@@ -132,4 +116,3 @@ class cargardatosActivity : AppCompatActivity() {
         selectedImageUri = null
     }
 }
-

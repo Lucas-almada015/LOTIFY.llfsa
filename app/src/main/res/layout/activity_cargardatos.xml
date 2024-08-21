@@ -28,8 +28,8 @@
         android:id="@+id/nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:text="Nombre"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -52,8 +52,8 @@
         android:id="@+id/lotNumberLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="Número de Lote"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -76,8 +76,8 @@
         android:id="@+id/locationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
         android:text="Ubicación"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -97,11 +97,35 @@
         app:layout_constraintTop_toBottomOf="@id/lotNumberInput" />
 
     <TextView
+        android:id="@+id/locationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:text="Ubicación actual:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locationInput" />
+
+    <TextView
+        android:id="@+id/locationValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:text="--"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/locationDisplay"
+        app:layout_constraintTop_toBottomOf="@id/locationInput" />
+
+    <TextView
         android:id="@+id/sizeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
         android:text="Tamaño"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -117,6 +141,7 @@
         android:layout_marginEnd="16dp"
         android:hint="Ingrese el tamaño"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@id/sizeLabel"
         app:layout_constraintTop_toBottomOf="@id/locationInput" />
 
@@ -124,8 +149,8 @@
         android:id="@+id/imageLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="72dp"
         android:text="Imagen"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -137,12 +162,13 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="Imagen del lote"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/imageLabel"
         app:layout_constraintTop_toBottomOf="@id/sizeInput" />
 
@@ -177,4 +203,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
