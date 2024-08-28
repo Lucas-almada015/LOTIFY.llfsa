@@ -20,6 +20,9 @@
         android:theme="@style/Theme.LOTIFYllfsa"
         tools:targetApi="31">
         <activity
+            android:name=".recorridosActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeatherResponse"
             android:exported="false" />
         <activity

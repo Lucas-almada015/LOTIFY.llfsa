@@ -1,5 +1,6 @@
 package com.llfsa.lotifyllfsa
 
+import android.content.Intent
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
@@ -57,6 +58,7 @@ class LoteInfoActivity : AppCompatActivity() {
         val tamañoTextView: TextView = findViewById(R.id.loteInfoTamañoTextView)
         val ubicacionTextView: TextView = findViewById(R.id.loteInfoUbicacionTextView)
         val backButton: Button = findViewById(R.id.backButton)
+        val addRecorridoButton: Button = findViewById(R.id.addRecorridoButton)
 
         weatherTempTextView = findViewById(R.id.weatherTempTextView)
         weatherConditionTextView = findViewById(R.id.weatherConditionTextView)
@@ -81,6 +83,12 @@ class LoteInfoActivity : AppCompatActivity() {
         // Configurar el botón de volver
         backButton.setOnClickListener {
             onBackPressed()
+        }
+
+        // Configurar el botón de agregar recorrido
+        addRecorridoButton.setOnClickListener {
+            val intent = Intent(this, recorridosActivity::class.java)
+            startActivity(intent)
         }
 
         // Verificar permisos y obtener la ubicación

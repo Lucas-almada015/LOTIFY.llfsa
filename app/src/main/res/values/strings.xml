@@ -1,3 +1,105 @@
 <resources>
     <string name="app_name">Lotify</string>
+    <!-- Cultivo -->
+    <string-array name="cultivo_array">
+        <item>ninguno</item>
+        <item>Soja (Glycine max)</item>
+        <item>Maíz (Zea mays)</item>
+        <item>Trigo (Triticum aestivum)</item>
+        <item>Girasol (Helianthus annuus)</item>
+        <item>Sorgo (Sorghum bicolor)</item>
+        <item>Cebada (Hordeum vulgare)</item>
+        <item>Algodón (Gossypium hirsutum)</item>
+        <item>Arroz (Oryza sativa)</item>
+        <item>Avena (Avena sativa)</item>
+        <item>Caña de Azúcar (Saccharum officinarum)</item>
+        <item>Maní (Arachis hypogaea)</item>
+        <item>Tabaco (Nicotiana tabacum)</item>
+        <item>Papa (Solanum tuberosum)</item>
+        <item>Vid (Vitis vinifera) - para producción de uvas y vinos</item>
+        <item>Olivo (Olea europaea)</item>
+        <item>Cebolla (Allium cepa)</item>
+        <item>Tomate (Solanum lycopersicum)</item>
+        <item>Batata (Ipomoea batatas)</item>
+        <item>Citrus (naranjas, limones, mandarinas)</item>
+        <item>Arándano (Vaccinium corymbosum)</item>
+        <item>Poroto (Phaseolus vulgaris)</item>
+    </string-array>
+
+    <!-- Malezas -->
+    <string-array name="maleza_array">
+        <item>ninguno</item>
+        <item>Rama Negra (Conyza bonariensis)</item>
+        <item>Sorgo de Alepo (Sorghum halepense)</item>
+        <item>Amaranthus (Amaranthus spp.)</item>
+        <item>Chiripá (Echinochloa colona)</item>
+        <item>Yuyo Colorado (Amaranthus quitensis)</item>
+        <item>Pastito de Campo (Cynodon dactylon)</item>
+        <item>Capín (Eleusine indica)</item>
+        <item>Lecherón (Euphorbia dentata)</item>
+        <item>Cardo (Carduus spp.)</item>
+        <item>Verdolaga (Portulaca oleracea)</item>
+        <item>Abrojo Grande (Xanthium cavanillesii)</item>
+        <item>Gramón (Cynodon dactylon)</item>
+        <item>Cebadilla Criolla (Bromus catharticus)</item>
+        <item>Flor Amarilla (Bidens pilosa)</item>
+        <item>Chamico (Datura ferox)</item>
+    </string-array>
+
+    <!-- Cobertura -->
+    <string-array name="cobertura_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Tamaño de la maleza -->
+    <string-array name="tamano_maleza_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Plagas -->
+    <string-array name="plagas_array">
+        <item>ninguno</item>
+        <item>Gusano Cogollero (Spodoptera frugiperda)</item>
+        <item>Picudo del Algodonero (Anthonomus grandis)</item>
+        <item>Trips (Frankliniella spp.)</item>
+        <item>Gusano Blanco (Diloboderus abderus)</item>
+        <item>Langosta Sudamericana (Schistocerca cancellata)</item>
+        <item>Pulgón Verde (Myzus persicae)</item>
+        <item>Mosca Blanca (Bemisia tabaci)</item>
+        <item>Isoca de la Soja (Anticarsia gemmatalis)</item>
+        <item>Chinche Verde (Nezara viridula)</item>
+        <item>Gorgojo del Maíz (Sitophilus zeamais)</item>
+        <item>Arañuela Roja (Tetranychus urticae)</item>
+        <item>Barrenador del Tallo (Diatraea saccharalis)</item>
+        <item>Hormiga Cortadora (Atta spp.)</item>
+        <item>Mosca de la Fruta (Ceratitis capitata)</item>
+        <item>Caracol Africano (Achatina fulica)</item>
+    </string-array>
+
+    <!-- Aplicación de plaga -->
+    <string-array name="aplicacion_plaga_array">
+        <item>sin problema</item>
+        <item>ajustar monitoreo</item>
+        <item>aplicar</item>
+    </string-array>
+
+    <!-- Aplicación de enfermedades -->
+    <string-array name="aplicacion_enfermedades_array">
+        <item>sin problema</item>
+        <item>ajustar monitoreo</item>
+        <item>aplicar</item>
+    </string-array>
+
+    <!-- TextView -->
+    <string name="text_view_placeholder">Placeholder</string>
 </resources>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8BC34A"
+    tools:context=".recorridosActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="Cargar Recorrido"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <!-- Campos de entrada -->
+            <TextView
+                android:id="@+id/cultivoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Cultivo"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/cultivoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/malezaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Maleza"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/malezaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/coberturaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Cobertura"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/coberturaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tamanoMalezaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Tamaño de la Maleza"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/tamanoMalezaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/plagasLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Plagas"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/plagasSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/umbralPlagasLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Umbral de Plagas"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/umbralPlagasEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el umbral de plagas"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/aplicacionPlagaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Aplicación de Plaga"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/aplicacionPlagaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/enfermedadesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Enfermedades"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/enfermedadesEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese enfermedades"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/aplicacionEnfermedadesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Aplicación de Enfermedades"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/aplicacionEnfermedadesSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:padding="12dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/infoAnexoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Info Anexo"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/infoAnexoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese información adicional"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="#673AB7"
+            android:text="Volver"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="#673AB7"
+            android:text="Guardar"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

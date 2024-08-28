@@ -7,4 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".lotes">
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="243dp"
+        android:layout_height="199dp"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="389dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

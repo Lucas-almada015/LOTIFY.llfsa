@@ -32,12 +32,30 @@
             android:textSize="18sp"
             android:layout_marginTop="16dp" />
 
+        <!-- Nueva etiqueta para Número del Lote -->
+        <TextView
+            android:id="@+id/loteInfoNumeroLoteLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número de Lote:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
         <TextView
             android:id="@+id/loteInfoNumeroLoteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Número del Lote"
             android:layout_marginTop="8dp" />
+
+        <!-- Nueva etiqueta para Tamaño del Lote -->
+        <TextView
+            android:id="@+id/loteInfoTamañoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tamaño del Lote:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:id="@+id/loteInfoTamañoTextView"
@@ -46,12 +64,22 @@
             android:text="Tamaño del Lote"
             android:layout_marginTop="8dp" />
 
+        <!-- Nueva etiqueta para Ubicación del Lote -->
+        <TextView
+            android:id="@+id/loteInfoUbicacionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicación del Lote:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
         <TextView
             android:id="@+id/loteInfoUbicacionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ubicación del Lote"
             android:layout_marginTop="8dp" />
+
         <TextView
             android:id="@+id/weatherTempTextView"
             android:layout_width="wrap_content"
@@ -73,11 +101,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Volver"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/calendarView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" />
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/addRecorridoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Recorrido"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

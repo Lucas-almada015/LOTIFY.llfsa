@@ -53,6 +53,7 @@ dependencies {
 
     // Glide
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation(libs.play.services.maps)
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
 
     // Retrofit
