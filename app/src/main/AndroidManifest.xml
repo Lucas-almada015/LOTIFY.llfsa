@@ -3,11 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES_STORAGE"/>
+
+    <!-- Para leer imágenes -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- Para leer vídeos -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+
+    <!-- Para leer audio -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_BACKGROUND_LOCATION"
+        tools:ignore="background-location" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +30,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LOTIFYllfsa"
         tools:targetApi="31">
+        <activity
+            android:name=".ForecastResponse"
+            android:exported="false" />
+
         <activity
             android:name=".recorridosActivity"
             android:exported="false" />

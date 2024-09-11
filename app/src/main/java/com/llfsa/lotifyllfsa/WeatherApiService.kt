@@ -12,4 +12,12 @@ interface WeatherApiService {
         @Query("q") location: String,
         @Query("lang") lang: String // Parámetro para especificar el idioma
     ): Call<WeatherResponse>
+
+    @GET("forecast.json")
+    fun getWeatherForecast(
+        @Query("key") apiKey: String,
+        @Query("q") location: String,
+        @Query("days") days: Int, // Número de días para el pronóstico
+        @Query("lang") lang: String
+    ): Call<ForecastResponse>
 }
