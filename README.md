@@ -3,5 +3,5 @@
 </div>
 
 <div align="center" style="margin: 50px 0;">
-        <img src="https://drive.google.com/file/d/1qwFuKFpoJhA1guvyX9RHajgEttmjkF8h/view?usp=sharing" alt="Lotify Layout" width="200px" style="border-radius: 50%; display: block; margin: auto;" />
+    <img src="https://drive.google.com/uc?export=view&id=1qwFuKFpoJhA1guvyX9RHajgEttmjkF8h" alt="Lotify Layout" width="200px" style="border-radius: 50%; display: block; margin: auto;" />
 </div>
