@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomRecyclerViewStyle">
+        <item name="android:background">@drawable/fondo</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+</resources>

@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verde">#66FF33</color>
     <color name="azul">#33FFFF</color>
+    <color name="Yellow">#E6FF94</color>
+    <color name="Lime">#9DDE8B</color>
+    <color name="Green">#40A578</color>
+    <color name="Blue">#006769</color>
 </resources>
