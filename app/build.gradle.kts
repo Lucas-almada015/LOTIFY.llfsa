@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
 
+
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.0")) // BOM version
     implementation("com.google.firebase:firebase-analytics")
@@ -73,6 +74,7 @@ dependencies {
 
     //MaterialComponents
     implementation ("com.google.android.material:material:1.8.0")
+    implementation ("com.google.android.material:material:1.6.1")
 
 }
 

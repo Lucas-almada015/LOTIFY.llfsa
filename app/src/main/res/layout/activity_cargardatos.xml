@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BC34A"
+    android:background="@color/cardview_dark_background"
     tools:context=".cargardatosActivity">
 
     <ScrollView
@@ -15,145 +15,180 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_margin="16dp"
+            android:backgroundTint="#2E2E2E"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp">
 
-            <!-- Aquí van todos los elementos de la pantalla -->
-
-            <TextView
-                android:id="@+id/titleTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:gravity="center"
-                android:text="Cargar Lote"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/darkgray">
 
-            <TextView
-                android:id="@+id/nameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Nombre"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="Cargar Lote"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/nameInput"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:hint="Ingrese el nombre" />
+                <!-- Nombre -->
+                <TextView
+                    android:id="@+id/nameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Nombre"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/lotNumberLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Número de Lote"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/nameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="12dp"
+                    android:hint="Ingrese el nombre"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <EditText
-                android:id="@+id/lotNumberInput"
-                android:layout_width="match_parent"
-                android:layout_height="51dp"
-                android:layout_marginTop="8dp"
-                android:hint="Ingrese el número de lote" />
+                <!-- Número de Lote -->
+                <TextView
+                    android:id="@+id/lotNumberLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Número de Lote"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/locationLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Ubicación"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/lotNumberInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="12dp"
+                    android:hint="Ingrese el número de lote"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <EditText
-                android:id="@+id/locationInput"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="8dp"
-                android:hint="Ingrese la ubicación" />
+                <!-- Ubicación -->
+                <TextView
+                    android:id="@+id/locationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Ubicación"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/sizeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Tamaño"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/locationInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="12dp"
+                    android:hint="Ingrese la ubicación"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <EditText
-                android:id="@+id/sizeInput"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:hint="Ingrese el tamaño" />
+                <!-- Tamaño -->
+                <TextView
+                    android:id="@+id/sizeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Tamaño"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
 
-            <CheckBox
-                android:id="@+id/checkbox_use_current_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Usar ubicación actual"
-                android:textColor="#000000" />
+                <EditText
+                    android:id="@+id/sizeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="12dp"
+                    android:hint="Ingrese el tamaño"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <CheckBox
-                android:id="@+id/checkbox_manual_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Introducir ubicación manualmente"
-                android:textColor="#000000" />
+                <!-- Opciones de Ubicación -->
+                <CheckBox
+                    android:id="@+id/checkbox_use_current_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Usar ubicación actual"
+                    android:textColor="#FFFFFF" />
 
-            <EditText
-                android:id="@+id/manual_latitude_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="Latitud"
-                android:inputType="numberDecimal"
-                android:visibility="gone" />
+                <CheckBox
+                    android:id="@+id/checkbox_manual_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Introducir ubicación manualmente"
+                    android:textColor="#FFFFFF" />
 
-            <EditText
-                android:id="@+id/manual_longitude_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="Longitud"
-                android:inputType="numberDecimal"
-                android:visibility="gone" />
+                <EditText
+                    android:id="@+id/manual_latitude_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Latitud"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <TextView
-                android:id="@+id/imageLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Imagen"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/manual_longitude_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Longitud"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B0B0" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="Imagen del lote"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_foreground" />
+                <!-- Imagen -->
+                <TextView
+                    android:id="@+id/imageLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Imagen"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Imagen del lote"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </ScrollView>
 
+    <!-- Botones inferiores -->
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
@@ -163,26 +198,26 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:background="#673AB7"
-            android:text="Cancelar"
-            android:textColor="@android:color/white" />
-
-        <Button
             android:id="@+id/cargarButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="#673AB7"
+            android:backgroundTint="@color/verde"
             android:text="Cargar"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/black" />
 
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:text="Cancelar"
+            android:textColor="@color/verde" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
