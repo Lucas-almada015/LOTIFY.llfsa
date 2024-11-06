@@ -9,6 +9,7 @@ android {
     namespace = "com.llfsa.lotifyllfsa"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.llfsa.lotifyllfsa"
         minSdk = 23
@@ -17,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -68,6 +72,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("com.google.android.material:material:1.9.0")
     implementation ("com.applandeo:material-calendar-view:1.9.0")
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
 
 
     // Testing

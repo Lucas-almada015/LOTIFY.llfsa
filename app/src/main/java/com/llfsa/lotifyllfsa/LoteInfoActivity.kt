@@ -29,6 +29,8 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import android.net.Uri
+import java.io.FileDescriptor
 
 class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
 
@@ -65,6 +67,7 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
         val tamaño = intent.getStringExtra("tamaño")
         val ubicacion = intent.getStringExtra("ubicacion")
         val IDlote = intent.getStringExtra("IDlote") ?: ""
+        val fileDescriptor = contentResolver.openFileDescriptor(Uri.parse(imageUrl), "r")?.fileDescriptor
 
         // Referencias a las vistas
         val imageView: ImageView = findViewById(R.id.loteInfoImageView)
@@ -80,11 +83,11 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
         weatherForecastTextView = findViewById(R.id.weatherForecastTextView)
         weatherHumidityTextView = findViewById(R.id.weatherHumidityTextView)
         weatherWindTextView = findViewById(R.id.weatherWindTextView)
-        calendarView = findViewById(R.id.calendarView2)
+        calendarView = findViewById(R.id.calendarView)
 
         // Setear los datos en las vistas
         Glide.with(this)
-            .load(imageUrl)
+            .load(fileDescriptor as Any?)
             .placeholder(R.drawable.placeholder_image)
             .error(R.drawable.error_image)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -158,7 +161,7 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
     }
 
     private fun actualizarCalendario(fechasRecorridos: List<Long>) {
-        val calendarView: CalendarView = findViewById(R.id.calendarView2) // Asegúrate de que el ID sea correcto
+        val calendarView: CalendarView = findViewById(R.id.calendarView) // Asegúrate de que el ID sea correcto
 
         val events = mutableListOf<EventDay>()
         for (fechaRecorrido in fechasRecorridos) {

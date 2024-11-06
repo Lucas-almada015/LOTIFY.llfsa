@@ -9,28 +9,6 @@
     tools:context=".HomeActivity">
 
     <!-- Botones de perfil y logout -->
-    <Button
-        android:id="@+id/button4"
-        style="@style/BaseButtonStyle"
-        android:layout_marginEnd="5dp"
-        android:text="Perfil"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintWidth_percent="0.28" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        style="@style/BaseButtonStyle"
-        android:text="Cerrar"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintWidth_percent="0.28" />
 
     <!-- Título de la App -->
     <TextView
@@ -47,31 +25,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Icono de búsqueda -->
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="32dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@id/logoutButton"
-        app:srcCompat="@drawable/lupa" />
 
     <!-- Descripción de la App -->
+
+    <!-- Información adicional (invisible en diseño) -->
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="4dp"
         android:text="Control de Lotes"
         android:textColor="@color/colorSeparator"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button4" />
+        tools:layout_editor_absoluteY="119dp" />
 
-    <!-- Información adicional (invisible en diseño) -->
     <TextView
         android:id="@+id/emaillTextView"
         android:layout_width="wrap_content"
@@ -80,7 +49,7 @@
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="16sp"
-        tools:visibility="invisible"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView4" />
 
@@ -92,7 +61,7 @@
         android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="16sp"
-        tools:visibility="invisible"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emaillTextView" />
 
@@ -110,8 +79,8 @@
     <!-- Lista de lotes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="398dp"
+        android:layout_height="691dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
 
@@ -134,45 +103,52 @@
         app:layout_constraintBottom_toBottomOf="@id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent" />
 
-        tools:layout_editor_absoluteX="-3dp">
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="56dp"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:contentDescription="Actualizar"
+        android:scaleType="centerInside"
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        tools:layout_editor_absoluteX="348dp"
+        tools:layout_editor_absoluteY="106dp" />
 
-        <!-- Botón "+" (button2) -->
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="50dp"
+        android:layout_height="54dp"
+        android:background="@null"
+        android:contentDescription="CerrarSecion"
+        android:scaleType="centerInside"
+        android:tint="#FF0000"
+        app:srcCompat="@drawable/cerrar_sesion"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:background="@null"
+        android:contentDescription="Perfil"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/descarga__12__removebg_preview"
+        tools:layout_editor_absoluteX="344dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+
+    <!-- Botón "+" (button2) -->
 
         <!-- Botón Perfil (button4) -->
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="69dp"
-            android:layout_height="64dp"
-            android:text="+"
-            android:textAlignment="center"
-            android:textSize="48sp" />
+
 
         <!-- Botón Cerrar sesión (logoutButton) -->
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="382dp"
-            android:layout_height="wrap_content"
-            android:text="Cerrar sesión"
-            android:textSize="24sp" />
-
-    </LinearLayout>
 
 
-    <Button
-        android:id="@+id/updateButton"
-        android:layout_width="113dp"
-        android:layout_height="49dp"
-        android:text="Actualizar"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="13dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

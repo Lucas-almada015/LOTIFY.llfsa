@@ -8,124 +8,13 @@
     android:background="@color/cardview_dark_background"
     tools:context=".LoteInfoActivity">
 
-<ScrollView
-android:layout_width="0dp"
-android:layout_height="0dp"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintBottom_toTopOf="@id/buttonContainer">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/loteInfoImageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/placeholder_image" />
-
-    <TextView
-        android:id="@+id/loteInfoNombreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre del Lote"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/loteInfoNumeroLoteLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Número de Lote:"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/loteInfoNumeroLoteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Número del Lote"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/loteInfoTamañoLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tamaño del Lote:"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/loteInfoTamañoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tamaño del Lote"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/loteInfoUbicacionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ubicación del Lote:"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/loteInfoUbicacionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ubicación del Lote"
-        android:textColor="@android:color/white"/>
-
-    <TextView
-        android:id="@+id/weatherTempTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temperatura: "
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/weatherConditionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Condición: "
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/weatherForecastTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pronóstico: "
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-    android:layout_marginTop="16dp" />
-
-    <CalendarView
-        android:id="@+id/calendarView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        style="@style/CustomCalendarViewStyle" />
-
-</LinearLayout>
-</ScrollView>
-
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -146,16 +35,17 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Nombre del Lote"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
-            <!-- Nueva etiqueta para Número del Lote -->
             <TextView
                 android:id="@+id/loteInfoNumeroLoteLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Número de Lote:"
                 android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
             <TextView
@@ -163,15 +53,16 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Número del Lote"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
 
-            <!-- Nueva etiqueta para Tamaño del Lote -->
             <TextView
                 android:id="@+id/loteInfoTamañoLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tamaño del Lote:"
                 android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
             <TextView
@@ -179,15 +70,16 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tamaño del Lote"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
 
-            <!-- Nueva etiqueta para Ubicación del Lote -->
             <TextView
                 android:id="@+id/loteInfoUbicacionLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ubicación del Lote:"
                 android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
             <TextView
@@ -195,7 +87,7 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ubicación del Lote"
-                android:layout_marginTop="8dp" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/weatherTempTextView"
@@ -203,6 +95,7 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Temperatura: "
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
             <TextView
@@ -211,6 +104,7 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Condición: "
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
 
             <TextView
@@ -219,6 +113,7 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Humedad: "
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
 
             <TextView
@@ -227,6 +122,7 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Viento: "
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
 
             <TextView
@@ -235,17 +131,18 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
                 android:layout_height="wrap_content"
                 android:text="Pronóstico: "
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp" />
 
             <com.applandeo.materialcalendarview.CalendarView
-                android:id="@+id/calendarView2"
+                android:id="@+id/calendarView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/CustomCalendarViewStyle" />
 
         </LinearLayout>
     </ScrollView>
-
-    <!-- Contenedor para los botones fijos -->
 
     <LinearLayout
         android:id="@+id/buttonContainer"
@@ -256,7 +153,6 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
@@ -279,6 +175,5 @@ app:layout_constraintBottom_toTopOf="@id/buttonContainer">
             android:text="Volver"
             android:textSize="18sp"
             android:textColor="@color/verde" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
