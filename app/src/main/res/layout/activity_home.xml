@@ -8,39 +8,81 @@
     android:background="@color/cardview_dark_background"
     tools:context=".HomeActivity">
 
-    <!-- Botones de perfil y logout -->
+    <!-- Botones de perfil, actualización y logout en la parte superior -->
+
+    <!-- Botón de Cerrar Sesión -->
+    <!-- Botón de Perfil -->
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:contentDescription="Perfil"
+        android:scaleType="centerInside"
+        android:tint="@color/verde"
+        app:srcCompat="@drawable/descarga__12__removebg_preview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Botón de Cerrar Sesión -->
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:contentDescription="Cerrar Sesión"
+        android:scaleType="centerInside"
+        android:tint="@color/darkgray"
+        app:srcCompat="@drawable/cerrar_sesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp" />
+
+
+    <!-- Icono de Actualizar -->
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:contentDescription="Actualizar"
+        android:scaleType="centerInside"
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageButton5"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp" />
 
     <!-- Título de la App -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-black"
         android:text="Lotify"
         android:textColor="@color/verde"
         android:textSize="43sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Icono de búsqueda -->
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Descripción de la App -->
-
-    <!-- Información adicional (invisible en diseño) -->
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
         android:text="Control de Lotes"
         android:textColor="@color/colorSeparator"
         android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="119dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- TextViews adicionales (invisibles en diseño) -->
     <TextView
         android:id="@+id/emaillTextView"
         android:layout_width="wrap_content"
@@ -50,8 +92,8 @@
         android:text="TextView"
         android:textSize="16sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        app:layout_constraintTop_toBottomOf="@id/textView4"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/providerrTextView"
@@ -62,93 +104,47 @@
         android:text="TextView"
         android:textSize="16sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emaillTextView" />
+        app:layout_constraintTop_toBottomOf="@id/emaillTextView"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Separador de contenido -->
+    <!-- Separador -->
     <View
         android:id="@+id/separator"
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:background="@color/verde"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView4"
-        app:layout_constraintWidth_percent="0.97" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.97"
+        android:layout_marginTop="8dp" />
 
-    <!-- Lista de lotes -->
+    <!-- RecyclerView para mostrar los lotes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="398dp"
-        android:layout_height="691dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/separator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="8dp" />
 
-    <!-- Botón flotante de acción -->
+    <!-- Botón flotante de acción para añadir lotes -->
     <Button
         android:id="@+id/button2"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/verde"
-        android:gravity="center"
         android:text="+"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+        android:textSize="24sp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="56dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="Actualizar"
-        android:scaleType="centerInside"
-        app:srcCompat="@android:drawable/ic_popup_sync"
-        tools:layout_editor_absoluteX="348dp"
-        tools:layout_editor_absoluteY="106dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="50dp"
-        android:layout_height="54dp"
-        android:background="@null"
-        android:contentDescription="CerrarSecion"
-        android:scaleType="centerInside"
-        android:tint="#FF0000"
-        app:srcCompat="@drawable/cerrar_sesion"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:background="@null"
-        android:contentDescription="Perfil"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/descarga__12__removebg_preview"
-        tools:layout_editor_absoluteX="344dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-
-    <!-- Botón "+" (button2) -->
-
-        <!-- Botón Perfil (button4) -->
-
-
-
-        <!-- Botón Cerrar sesión (logoutButton) -->
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

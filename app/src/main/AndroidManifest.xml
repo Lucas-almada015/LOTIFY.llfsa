@@ -48,6 +48,9 @@
             android:name=".RetrofitClient"
             android:exported="false" />
         <activity
+            android:name=".LoteAdapter"
+            android:exported="false" />
+        <activity
             android:name=".LoteInfoActivity"
             android:exported="false" />
         <activity

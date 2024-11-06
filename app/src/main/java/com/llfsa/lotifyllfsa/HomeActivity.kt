@@ -211,7 +211,7 @@ class LoteAdapter(private var lotes: List<Lote>) : RecyclerView.Adapter<LoteAdap
         Glide.with(holder.itemView.context)
             .load(lote.imageUrl)
             .placeholder(R.drawable.placeholder_image)
-            .error(R.drawable.error_image) // Asegúrate de tener una imagen de error
+            .error(R.drawable.demo4) // Asegúrate de tener una imagen de error
             .diskCacheStrategy(DiskCacheStrategy.NONE) // Evita el uso de caché
             .skipMemoryCache(true) // No usa caché en memoria
             .into(holder.loteImageView)

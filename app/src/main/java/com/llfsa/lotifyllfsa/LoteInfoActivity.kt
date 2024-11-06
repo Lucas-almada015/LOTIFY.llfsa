@@ -29,8 +29,6 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
-import android.net.Uri
-import java.io.FileDescriptor
 
 class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
 
@@ -67,7 +65,6 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
         val tamaño = intent.getStringExtra("tamaño")
         val ubicacion = intent.getStringExtra("ubicacion")
         val IDlote = intent.getStringExtra("IDlote") ?: ""
-        val fileDescriptor = contentResolver.openFileDescriptor(Uri.parse(imageUrl), "r")?.fileDescriptor
 
         // Referencias a las vistas
         val imageView: ImageView = findViewById(R.id.loteInfoImageView)
@@ -87,7 +84,7 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
 
         // Setear los datos en las vistas
         Glide.with(this)
-            .load(fileDescriptor as Any?)
+            .load(imageUrl)
             .placeholder(R.drawable.placeholder_image)
             .error(R.drawable.error_image)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
