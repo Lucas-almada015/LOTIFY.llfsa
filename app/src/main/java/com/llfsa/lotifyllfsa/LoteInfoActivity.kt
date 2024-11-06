@@ -86,7 +86,7 @@ class LoteInfoActivity : AppCompatActivity(), OnDayClickListener {
         Glide.with(this)
             .load(imageUrl)
             .placeholder(R.drawable.placeholder_image)
-            .error(R.drawable.error_image)
+            .error(R.drawable.demo4)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .skipMemoryCache(true)
             .into(imageView)
