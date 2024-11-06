@@ -1,120 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondologin"
     tools:context=".AuthActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="415dp"
-        android:layout_height="258dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="1.0"
-        app:srcCompat="@drawable/th" />
-
-    <ImageView
+    <!-- Imagen con logo-->
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/s1"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintWidth_percent="0.5"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/lotifyicon" />
+
+    <!-- Fondo redondeado -->
+    <!-- Texto de bienvenida -->
+    <View
+        android:id="@+id/backgroundShape"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.7"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintWidth_percent="0.9" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Bienvenido a"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
-
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        app:layout_constraintTop_toTopOf="@id/backgroundShape" />
+    <!-- LOTIFY -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-medium"
         android:text="LOTIFY"
         android:textColor="#8BC34A"
-        android:textSize="60sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
-
+        android:textSize="50sp"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        android:layout_marginTop="8dp" />
+    <!-- Campo de texto para email -->
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
+        android:textColorHint="#333333"
+    android:textColor="#000000"
+    app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+    app:layout_constraintStart_toStartOf="@id/backgroundShape"
+    app:layout_constraintTop_toBottomOf="@id/textView2"
+    app:layout_constraintWidth_percent="0.8"/>
 
+    <!-- Campo de texto para contraseña -->
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
         android:hint="Contraseña"
+        android:textColorHint="#333333"
+        android:textColor="#000000"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress"
+        app:layout_constraintWidth_percent="0.8" />
 
+
+    <!-- Botón de Iniciar Sesión -->
     <Button
         android:id="@+id/logInButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/verde"
-        android:text="Iniciar Sesión"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword" />
+        style="@style/LogInButtonStyle"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        app:layout_constraintWidth_percent="0.8" />
 
+    <!-- Botón de Registrarme -->
     <Button
         android:id="@+id/signUpButton"
-        android:layout_width="0dp"
+        style="@style/SignUpButtonStyle"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/forgotPasswordButton"
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        app:layout_constraintWidth_percent="0.8" />
+    <!-- Botón de olvido su contraseña -->
+    <Button
+        android:id="@+id/forgotPasswordButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/azul"
-        android:text="Registrarme"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logInButton" />
+        android:background="?attr/selectableItemBackground"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundShape"
+        app:layout_constraintEnd_toEndOf="@id/backgroundShape"
+        app:layout_constraintStart_toStartOf="@id/backgroundShape"
+        android:layout_marginBottom="24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

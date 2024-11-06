@@ -38,11 +38,14 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.0")) // BOM version
@@ -71,4 +74,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //MaterialComponents
+    implementation ("com.google.android.material:material:1.8.0")
+    implementation ("com.google.android.material:material:1.6.1")
+
 }

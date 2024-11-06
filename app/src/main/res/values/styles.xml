@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomRecyclerViewStyle">
+        <item name="android:background">@drawable/fondo</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="CustomCalendarViewStyle">
+        <item name="android:background">@color/verde</item>
+        <item name="android:weekDayTextAppearance">@style/CustomWeekDayTextAppearance</item>
+    </style>
+
+    <style name="CustomHeaderTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item> <!-- Añadir este atributo para negrita -->
+    </style>
+
+
+    <style name="CustomDayTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CustomWeekDayTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!-- Estilo base para los botones -->
+    <style name="BaseButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:backgroundTint">#96C92D</item> <!-- Color de fondo por defecto -->
+        <item name="android:textColor">@color/black</item> <!-- Color del texto por defecto -->
+    </style>
+
+    <!-- Estilo para el botón de Iniciar Sesión -->
+    <style name="LogInButtonStyle" parent="BaseButtonStyle">
+        <item name="android:text">Iniciar Sesión</item>
+    </style>
+
+    <!-- Estilo para el botón de Registrarme -->
+    <style name="SignUpButtonStyle" parent="BaseButtonStyle">
+        <item name="android:backgroundTint">@color/black</item> <!-- Color de fondo para el botón de registrarse -->
+        <item name="android:text">Registrarme</item>
+        <item name="android:textColor">@color/white</item> <!-- Color del texto para el botón de registrarse -->
+    </style>
+</resources>

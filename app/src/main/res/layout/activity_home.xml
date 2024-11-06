@@ -5,45 +5,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/cardview_dark_background"
     tools:context=".HomeActivity">
 
-    <!-- ImageView pequeño -->
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="57dp"
-        android:layout_height="54dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/s3" />
+    <!-- Botones de perfil y logout -->
+    <Button
+        android:id="@+id/button4"
+        style="@style/BaseButtonStyle"
+        android:layout_marginEnd="5dp"
+        android:text="Perfil"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintWidth_percent="0.28" />
 
-    <!-- TextView "Lotify" -->
+    <Button
+        android:id="@+id/logoutButton"
+        style="@style/BaseButtonStyle"
+        android:text="Cerrar"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintWidth_percent="0.28" />
+
+    <!-- Título de la App -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Lotify"
-        android:textColor="#8BC34A"
-        android:textSize="60sp"
+        android:textColor="@color/verde"
+        android:textSize="43sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- TextView "Control de Lotes" -->
+    <!-- Icono de búsqueda -->
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="32dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@id/logoutButton"
+        app:srcCompat="@drawable/lupa" />
+
+    <!-- Descripción de la App -->
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Control de Lotes"
-        android:textSize="40sp"
+        android:textColor="@color/colorSeparator"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@id/button4" />
 
-    <!-- TextView email -->
+    <!-- Información adicional (invisible en diseño) -->
     <TextView
         android:id="@+id/emaillTextView"
         android:layout_width="wrap_content"
@@ -51,13 +79,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        tools:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:visibility="invisible"
-        />
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
 
-    <!-- TextView provider -->
     <TextView
         android:id="@+id/providerrTextView"
         android:layout_width="wrap_content"
@@ -65,43 +91,49 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        tools:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emaillTextView"
-        android:visibility="invisible"
-        />
+        app:layout_constraintTop_toBottomOf="@id/emaillTextView" />
 
-    <!-- ImageView con la captura -->
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="482dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="88dp"
+    <!-- Separador de contenido -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/verde"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/captura_de_pantalla_2024_05_29_190234" />
+        app:layout_constraintTop_toBottomOf="@id/textView4"
+        app:layout_constraintWidth_percent="0.97" />
 
-    <!-- RecyclerView para los lotes -->
+    <!-- Lista de lotes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintBottom_toTopOf="@+id/buttonsLayout" />
-
-    <!-- LinearLayout para los botones en la parte inferior -->
-    <LinearLayout
-        android:id="@+id/buttonsLayout"
-        android:layout_width="417dp"
-        android:layout_height="206dp"
-        android:layout_marginBottom="4dp"
-        android:orientation="vertical"
-        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator" />
+
+    <!-- Botón flotante de acción -->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/verde"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
         tools:layout_editor_absoluteX="-3dp">
 
         <!-- Botón "+" (button2) -->
@@ -134,6 +166,7 @@
 
     </LinearLayout>
 
+
     <Button
         android:id="@+id/updateButton"
         android:layout_width="113dp"
@@ -143,5 +176,3 @@
         tools:layout_editor_absoluteY="13dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

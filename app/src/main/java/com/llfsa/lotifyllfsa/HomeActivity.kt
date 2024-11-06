@@ -3,6 +3,7 @@ package com.llfsa.lotifyllfsa
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -43,6 +44,14 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        // Hacer la barra de estado transparente
+        window.statusBarColor = Color.TRANSPARENT
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+        // Hacer la barra de navegación transparente
+        window.navigationBarColor = Color.TRANSPARENT
+        window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
         // Solicitar permisos si es necesario
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {

@@ -2,6 +2,7 @@ package com.llfsa.lotifyllfsa
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
@@ -44,6 +45,13 @@ class cargardatosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cargardatos)
+        // Hacer la barra de estado y navegación transparentes
+        window.apply {
+            statusBarColor = Color.TRANSPARENT
+            navigationBarColor = Color.TRANSPARENT
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        }
 
         // Inicializar vistas
         nameInput = findViewById(R.id.nameInput)
