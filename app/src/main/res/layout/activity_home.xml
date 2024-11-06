@@ -114,6 +114,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -132,5 +133,46 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent" />
+
+        tools:layout_editor_absoluteX="-3dp">
+
+        <!-- Botón "+" (button2) -->
+
+        <!-- Botón Perfil (button4) -->
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="69dp"
+            android:layout_height="64dp"
+            android:text="+"
+            android:textAlignment="center"
+            android:textSize="48sp" />
+
+        <!-- Botón Cerrar sesión (logoutButton) -->
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="383dp"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="382dp"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesión"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="113dp"
+        android:layout_height="49dp"
+        android:text="Actualizar"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="13dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

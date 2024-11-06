@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 
 enum class ProviderType { BASIC }
 
@@ -31,6 +32,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var logoutButton: Button
     private lateinit var perfilButton: Button
     private lateinit var cargarButton: Button
+    private lateinit var updateButton: Button
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: LoteAdapter
     private lateinit var db: FirebaseFirestore
@@ -67,6 +69,7 @@ class HomeActivity : AppCompatActivity() {
         logoutButton = findViewById(R.id.logoutButton)
         perfilButton = findViewById(R.id.button4)
         cargarButton = findViewById(R.id.button2)
+        updateButton = findViewById(R.id.updateButton)
         recyclerView = findViewById(R.id.recyclerView)
 
         // Inicializar Firestore
@@ -85,6 +88,10 @@ class HomeActivity : AppCompatActivity() {
 
         // Cargar datos de lotes desde Firestore
         loadLotesData()
+
+        updateButton.setOnClickListener {
+            loadLotesData() // Llamar a la función de cargar datos
+        }
     }
 
     private fun setup(email: String, provider: String) {
@@ -93,8 +100,22 @@ class HomeActivity : AppCompatActivity() {
         providerTextView.text = provider
 
         logoutButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+            // Crear un AlertDialog para confirmar el cierre de sesión
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Cerrar sesión")
+                .setMessage("¿Estás seguro de que deseas cerrar sesión?")
+                .setPositiveButton("Sí") { dialog, _ ->
+                    // Cerrar sesión si el usuario confirma
+                    FirebaseAuth.getInstance().signOut()
+                    dialog.dismiss() // Cerrar el diálogo
+                    onBackPressed() // Volver a la pantalla anterior
+                }
+                .setNegativeButton("No") { dialog, _ ->
+                    dialog.dismiss() // Cerrar el diálogo si el usuario cancela
+                }
+
+            // Mostrar el AlertDialog
+            builder.create().show()
         }
 
         perfilButton.setOnClickListener {
@@ -115,7 +136,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun loadLotesData() {
+        // Obtener el UID del usuario actual
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
         db.collection("lotes")
+            .whereEqualTo("userId", userId) // Filtrar por userId
             .get()
             .addOnSuccessListener { result ->
                 val lotesList = mutableListOf<Lote>()
@@ -125,8 +150,9 @@ class HomeActivity : AppCompatActivity() {
                     val numeroLote = document.getString("numeroLote")
                     val tamaño = document.getString("tamaño")
                     val ubicacion = document.getString("ubicacion")
+                    val idLote = document.id
 
-                    val lote = Lote(imageUrl, nombreLote, numeroLote, tamaño, ubicacion)
+                    val lote = Lote(idLote,imageUrl, nombreLote, numeroLote, tamaño, ubicacion)
                     lotesList.add(lote)
                 }
                 adapter.updateLotes(lotesList)
@@ -152,6 +178,7 @@ class HomeActivity : AppCompatActivity() {
 }
 
 data class Lote(
+    val id: String,
     val imageUrl: String?,
     val nombre: String?,
     val numeroLote: String?,
@@ -172,11 +199,7 @@ class LoteAdapter(private var lotes: List<Lote>) : RecyclerView.Adapter<LoteAdap
                 if (position != RecyclerView.NO_POSITION) {
                     val selectedLote = lotes[position]
                     val intent = Intent(view.context, LoteInfoActivity::class.java).apply {
-                        putExtra("imageUrl", selectedLote.imageUrl)
-                        putExtra("nombre", selectedLote.nombre)
-                        putExtra("numeroLote", selectedLote.numeroLote)
-                        putExtra("tamaño", selectedLote.tamaño)
-                        putExtra("ubicacion", selectedLote.ubicacion)
+                        putExtra("IDlote", selectedLote.id) // Pasa el ID del lote como extra
                     }
                     view.context.startActivity(intent)
                 }

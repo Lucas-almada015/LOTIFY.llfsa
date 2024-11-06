@@ -2,11 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="verde">#96C92D</color>
     <color name="colorSeparator">#A9A9A9</color>
     <color name="gray">#595959</color>
     <color name="darkgray">#121212</color>
     <color name="colorBackground">#616161</color>
     <color name="textColor">#000000</color>
+
+
+    <color name="verde">#66FF33</color>
+    <color name="azul">#33FFFF</color>
+    <color name="red">#FF1100</color>
 
 </resources>
