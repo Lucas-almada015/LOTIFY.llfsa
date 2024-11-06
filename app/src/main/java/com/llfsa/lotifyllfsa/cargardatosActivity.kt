@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -31,6 +32,7 @@ class cargardatosActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private var selectedImageUri: Uri? = null
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var userId: String // Almacena el UID del usuario actual
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
@@ -60,12 +62,21 @@ class cargardatosActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        // Obtener el UID del usuario actual
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            userId = currentUser.uid
+        } else {
+            // Redirigir al login si el usuario no está autenticado
+            finish()
+        }
+
         // Configurar listener para seleccionar imagen
         imageView.setOnClickListener {
             seleccionarImagen()
         }
 
-        // Configurar lógica para mostrar u ocultar campos de ubicación
+        // Lógica para mostrar u ocultar campos de ubicación
         checkboxUseCurrentLocation.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkboxManualLocation.isChecked = false
@@ -86,7 +97,7 @@ class cargardatosActivity : AppCompatActivity() {
             }
         }
 
-        // Configurar el listener del botón de carga
+        // Listener del botón de carga
         cargarButton.setOnClickListener {
             val nombre = nameInput.text.toString().trim()
             val numeroLote = lotNumberInput.text.toString().trim()
@@ -119,7 +130,7 @@ class cargardatosActivity : AppCompatActivity() {
             }
         }
 
-        // Configurar el listener del botón de cancelar
+        // Listener del botón de cancelar
         cancelButton.setOnClickListener {
             finish()
         }
@@ -178,7 +189,8 @@ class cargardatosActivity : AppCompatActivity() {
             "ubicacion" to ubicacion,
             "tamaño" to tamaño,
             "latitud" to latitud,
-            "longitud" to longitud
+            "longitud" to longitud,
+            "userId" to userId // Añadir el UID del usuario
         )
 
         selectedImageUri?.let { uri ->
@@ -209,4 +221,3 @@ class cargardatosActivity : AppCompatActivity() {
         checkboxManualLocation.isChecked = false
     }
 }
-

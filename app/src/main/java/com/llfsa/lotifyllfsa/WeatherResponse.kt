@@ -6,12 +6,15 @@ data class WeatherResponse(
 
 data class CurrentWeather(
     val temp_c: Float,
+    val humidity: Int, // Agregar campo de humedad
+    val wind_kph: Float, // Agregar campo de velocidad del viento
     val condition: Condition
 )
 
 data class Condition(
     val text: String
 )
+
 data class ForecastResponse(
     val forecast: Forecast
 )
@@ -29,5 +32,7 @@ data class Day(
     val maxtemp_c: Float,
     val mintemp_c: Float,
     val avgtemp_c: Float,
-    val condition: Condition
+    val condition: Condition,
+    val humidity: Int, // Agregar campo de humedad en el pronóstico
+    val wind_kph: Float // Agregar campo de velocidad del viento en el pronóstico
 )

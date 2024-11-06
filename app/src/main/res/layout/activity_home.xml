@@ -131,7 +131,16 @@
             android:layout_height="wrap_content"
             android:text="Cerrar sesión"
             android:textSize="24sp" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="113dp"
+        android:layout_height="49dp"
+        android:text="Actualizar"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="13dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

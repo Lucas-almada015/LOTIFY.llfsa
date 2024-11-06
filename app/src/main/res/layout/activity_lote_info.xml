@@ -102,6 +102,22 @@
                 android:layout_marginTop="8dp" />
 
             <TextView
+                android:id="@+id/weatherHumidityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Humedad: "
+                android:textSize="18sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/weatherWindTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viento: "
+                android:textSize="18sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
                 android:id="@+id/weatherForecastTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,11 +125,10 @@
                 android:textSize="18sp"
                 android:layout_marginTop="16dp" />
 
-            <CalendarView
+            <com.applandeo.materialcalendarview.CalendarView
                 android:id="@+id/calendarView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>
